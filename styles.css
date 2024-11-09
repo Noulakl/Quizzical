@@ -1,0 +1,165 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+html::after{
+    content: url(./yellow\ decore.svg);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+html::before{
+    content: url(./blue\ decore.svg);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+main{
+    width: 80vw;
+}
+
+/* Styling the form */
+form.settings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.813rem;
+    margin: 0 auto;
+}
+
+form.settings select{
+    font-size:1.250rem;
+    text-align: center;
+    padding: 0.938rem 0;
+    border-radius:0.938rem;
+    width: 100%;
+    border: solid 0.125rem #4D5B9E ;
+    color: #4D5B9E;
+    appearance: none;
+    background-color: white;
+}
+
+ form.settings button{
+    margin: 0;
+ }
+/* Buttons */
+button{
+    font-size: 1rem;
+    padding: 1rem 1.750rem ;
+    margin-top: 1.250rem;
+    border: none;
+    border-radius: 0.938rem;
+}
+button.active{
+    color: white;
+    background-color: #4D5B9E;
+    transition: all .3s;
+}
+button.disabled{
+    border: 0.125rem solid #D6DBF5;
+    background: white;
+    color: #DBDEF0;
+}
+button.active:hover{
+    transform: scale(110%);
+    cursor: pointer;
+}
+div.score-containter button{
+    margin: 0;
+    }
+/* Typo */
+h1.title{
+    font-size: 1.938rem;
+    font-weight: bold;
+    color: #293264;
+    margin-bottom: 0.625rem;
+}
+
+h2.title{
+    margin: 0 0 2.813rem 0;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #4D5B9E;
+}
+
+h2.score{
+ font-size: .8rem;
+ color: #293264;
+ font-weight: bold;
+ margin: 0;
+}
+
+p.questions{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.answers-container li{
+    list-style: none;
+    font-size: 0.750rem;
+    border-radius: 0.496rem;
+    padding: 0.313rem 1.250rem ;
+    width: fit-content;
+    border: #D6DBF5 solid 0.063rem;
+}
+
+/* Inputs */
+#answers-container input{
+    display: none;
+}
+
+#answers-container label{
+    font-size: 0.750rem;
+    border-radius: 0.496rem;
+    padding: 0.313rem 1.250rem ;
+    width: fit-content;
+    border: #D6DBF5 solid 0.063rem;
+}
+#answers-container label:hover{
+    cursor: pointer;
+    background: #D6DBF5;
+}
+/* Choice status */
+.selected{
+    background-color: #D6DBF5;
+}
+.wrong{
+    background-color: #F8BCBC;
+}
+.right{
+    background-color: #94D7A2;
+}
+.remainig{
+    color: #D6DBF5;
+}
+
+/* Styling the questions and answers */
+div.quizz{
+    color: #293264;
+    border-bottom: solid 0.188rem #DBDEF0;
+    text-align: left;
+    margin-top: 1rem;
+}
+.answers-container{
+    display: flex;
+    gap: 0.750rem;
+    padding: 0;
+}
+form.answers-container{
+    margin: 1rem 0 ;
+}
+div.score-containter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1.250rem ;
+}
