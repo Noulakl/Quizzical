@@ -1,0 +1,65 @@
+{
+    "response_code": 0,
+    "results": [
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Entertainment: Books",
+            "question": "What was Sir Handel&#039;s original name in &quot;The Railway Series&quot; and it&#039;s animated counterpart &quot;Thomas and Friends?&quot;",
+            "correct_answer": "Falcon",
+            "incorrect_answers": [
+                "Eagle",
+                "Kyte",
+                "Swallow"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Entertainment: Books",
+            "question": "Who wrote &quot;A Tale of Two Cities&quot;?",
+            "correct_answer": "Charles Dickens",
+            "incorrect_answers": [
+                "Charles Darwin",
+                "Mark Twain",
+                "Roald Dahl"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Entertainment: Books",
+            "question": "Who wrote &quot;Harry Potter&quot;?",
+            "correct_answer": "J.K. Rowling",
+            "incorrect_answers": [
+                "J.R.R. Tolkien",
+                "Terry Pratchett",
+                "Daniel Radcliffe"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Entertainment: Books",
+            "question": "Who was the original author of Frankenstein?",
+            "correct_answer": "Mary Shelley",
+            "incorrect_answers": [
+                "Edgar Allan Poe",
+                "Bram Stoker",
+                "H. P. Lovecraft"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Entertainment: Books",
+            "question": "What was the name of Captain Nemo&#039;s submarine in &quot;20,000 Leagues Under the Sea&quot;?",
+            "correct_answer": "The Nautilus",
+            "incorrect_answers": [
+                "The Neptune",
+                "The Poseidon  ",
+                "The Atlantis"
+            ]
+        }
+    ]
+}

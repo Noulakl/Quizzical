@@ -1,3 +1,6 @@
+*{
+    user-select: none;
+}
 body, html{
     margin: 0;
     padding: 0;
@@ -11,14 +14,14 @@ body, html{
     height: 100vh;
 }
 html::after{
-    content: url(./yellow\ decore.svg);
+    content: url(/src/assets/yellow\ decore.svg);
     position: fixed;
     top: 0;
     right: 0;
     z-index: -1;
 }
 html::before{
-    content: url(./blue\ decore.svg);
+    content: url(/src/assets/blue\ decore.svg);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -52,31 +55,34 @@ form.settings select{
  form.settings button{
     margin: 0;
  }
-/* Buttons */
-button{
+
+/* Button status */
+button, a{
     font-size: 1rem;
     padding: 1rem 1.750rem ;
     margin-top: 1.250rem;
     border: none;
     border-radius: 0.938rem;
 }
-button.active{
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+.active{
     color: white;
     background-color: #4D5B9E;
     transition: all .3s;
 }
-button.disabled{
+.disabled{
     border: 0.125rem solid #D6DBF5;
     background: white;
     color: #DBDEF0;
 }
-button.active:hover{
+.active:hover{
     transform: scale(110%);
     cursor: pointer;
 }
-div.score-containter button{
-    margin: 0;
-    }
+
 /* Typo */
 h1.title{
     font-size: 1.938rem;
@@ -96,10 +102,10 @@ h2.score{
  font-size: .8rem;
  color: #293264;
  font-weight: bold;
- margin: 0;
+ margin-top: 1.250rem 0 0;
 }
 
-p.questions{
+h2.question{
     font-size: 1rem;
     font-weight: 600;
 }
@@ -113,53 +119,56 @@ p.questions{
 }
 
 /* Inputs */
-#answers-container input{
+input{
     display: none;
 }
 
-#answers-container label{
+
+/* Labels */
+label{
     font-size: 0.750rem;
     border-radius: 0.496rem;
     padding: 0.313rem 1.250rem ;
     width: fit-content;
     border: #D6DBF5 solid 0.063rem;
+    margin: .5em 0;
 }
-#answers-container label:hover{
-    cursor: pointer;
-    background: #D6DBF5;
-}
+
+label:hover,
+label:has(input:checked){
+        cursor: pointer;
+        background: #D6DBF5;
+    }
+
 /* Choice status */
-.selected{
-    background-color: #D6DBF5;
-}
-.wrong{
+label:has(input:checked).wrong{
     background-color: #F8BCBC;
 }
-.right{
+label:has(input:checked).right{
     background-color: #94D7A2;
 }
-.remainig{
-    color: #D6DBF5;
+label.remainig{
+    color: #7E7B9B;
 }
 
 /* Styling the questions and answers */
-div.quizz{
+.quizz{
     color: #293264;
-    border-bottom: solid 0.188rem #DBDEF0;
     text-align: left;
     margin-top: 1rem;
+    border: none;
+    border-bottom: solid 0.188rem #DBDEF0;
+    display: flex;
+    gap: 1.125rem;
+    padding-left: 0;
 }
 .answers-container{
     display: flex;
     gap: 0.750rem;
+    flex-direction: column;
     padding: 0;
 }
 form.answers-container{
     margin: 1rem 0 ;
 }
-div.score-containter{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 1.250rem ;
-}
+
