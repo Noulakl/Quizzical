@@ -4,6 +4,7 @@ import { useOutletContext, Link } from 'react-router'
 
 export default function StartPage(){
     const [quizContext, setQuizContext] = useOutletContext()
+    const {hasChosen} = quizContext 
     const categoryEl = React.useRef(null)
     const difficultyEl = React.useRef(null)
     function checkIfReady(){
@@ -58,7 +59,14 @@ export default function StartPage(){
                     <option value="hard"> God </option>
                 </select>
             </form>
-            <Link className={quizContext.hasChosen ? "active" : "disabled"} to={"quizPage"} > Start Quizz </Link>
+
+           { 
+           hasChosen && 
+           <Link 
+                className="active" 
+                to={"quizPage"}> 
+                Start Quizz 
+            </Link>}
         </section>
     )
 }

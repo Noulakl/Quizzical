@@ -3,7 +3,7 @@
 }
 body, html{
     margin: 0;
-    padding: 0;
+    padding: .5em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     box-sizing: border-box;
@@ -144,12 +144,15 @@ label:has(input:checked){
 label:has(input:checked).wrong{
     background-color: #F8BCBC;
 }
-label:has(input:checked).right{
+label:has(input:checked).right,
+label.right{
     background-color: #94D7A2;
+    color: white;
 }
 label.remainig{
     color: #7E7B9B;
 }
+
 
 /* Styling the questions and answers */
 .quizz{
@@ -171,4 +174,30 @@ label.remainig{
 form.answers-container{
     margin: 1rem 0 ;
 }
-
+/* Error containers */
+.sadPath img{
+    width: 30vw;
+}
+.sadPath{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sadPath h1{
+    font-size: 2.5rem;
+    color: #D7DBE6;
+}
+/* The loading boxes */
+.loadingCont h1{
+    color: #D7DBE6;
+    font-size: 3rem;
+}
+.dots{
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.dots img{
+    width: 30%;
+}

@@ -16,12 +16,13 @@ export default function ResultPage(){
     const quizEl = quizes.map(quiz => {
         const quizId = quiz.id
         const answersEl = quiz.answers.map(answer =>{
+            const correct = answer.isCorrect 
             const isRight = answer.isSelected && answer.isCorrect
             const isWrong = answer.isSelected && !answer.isCorrect
             const variant = clsx(
                 "remainig",{
-                right:isRight,
-                wrong:isWrong
+                right:isRight || correct,
+                wrong:isWrong,
                 }
             )
             return(

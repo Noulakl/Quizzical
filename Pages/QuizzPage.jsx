@@ -4,12 +4,15 @@ import Answer from "../components/Answer"
 import {decode} from "html-entities"
 import { nanoid } from "nanoid"
 import { useOutletContext, Link } from 'react-router'
-
+import OfflinePage from "./Offline"
+import ErroPage from "./ErrorPage"
+import Loading from "../components/Loading"
 
 
 export default function QuizzPage(){
     const [status, setStatus] = React.useState(null)
     const [error, setError] = React.useState(null)
+    const [loading, setLoading] = React.useState(null)
     const [quizContext, setQuizContext] =useOutletContext()
     const {quizes, gameEnded,hasInternet} = quizContext
     const quizForm = React.useRef(null)
@@ -25,6 +28,14 @@ export default function QuizzPage(){
     }
 
     React.useEffect(()=>{
+        const BrowserInternet = navigator.onLine
+        setQuizContext(prev => {
+            return {
+                ...prev,
+                hasInternet:BrowserInternet
+            }
+        })
+        setLoading(true)
         fetch(quizContext.apiLink)
             .then(res=>res.json())
             .then(data => {
@@ -56,17 +67,20 @@ export default function QuizzPage(){
                         answers: !gameEnded && shuffle(allAnswers),
                     }   
                 })
-                
                 setQuizContext(prev => {
                     return {
                         ...prev,
-                        quizes:allQuiz
+                        quizes:allQuiz,
+                        hasInternet:hasInternet,
+                        hasChosen:false
                     }
                 })
-                setStatus("ready")
+                setLoading(false)
             }).catch( err =>{
                 setError(err.message)
+                setLoading(false)
             })
+            setStatus("ready")
         }
     ,[quizContext.apiLink])
 
@@ -112,7 +126,6 @@ export default function QuizzPage(){
             }
             
         ))
-        setStatus(null)
     }
 
     // Rendering the quizes
@@ -137,32 +150,33 @@ export default function QuizzPage(){
         )
     })
     return (
-
-   
-    !status ? <h1> 
-        {
-        error && hasInternet ? " Ooops! something went wrong. Please try again later":
-        !hasInternet ? "Please connect to Internet" : "Loading..." 
-        }
-
-         </h1>
-         :
+<>
+    {        
+    error && hasInternet ?
+        <ErroPage>
+            Ooops! something went wrong. Please try again later
+        </ErroPage> :
+    !hasInternet ? 
+        <OfflinePage>
+            You are offline, please connect to the Internet.
+        </OfflinePage> : 
+    loading ? <Loading/> :
     <section className="quizz-section">
         <form 
-                className="answers-container" 
-                id="answers-container"
-                ref={quizForm} 
-        >
+            className="answers-container" 
+            id="answers-container"
+            ref={quizForm}>
             {quizEl}
         </form>
-        <Link  
-            className= {`active check ${ chosenAnswersCount.current < 4  && "disabled"}`}
+       {chosenAnswersCount.current > 2 && <Link  
+            className= {`active check`}
             to={"/resultPage"}
-            onClick={checkAnswers}
-            disabled={chosenAnswersCount.current < 4}
-            > Check answers</Link>
-       
+            onClick={checkAnswers}> 
+            Check answers
+        </Link>}
     </section>
+
+    }
+</>
     )
 }
-// check out the questions

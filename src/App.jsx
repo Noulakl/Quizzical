@@ -15,6 +15,7 @@ const [quizContext, setQuizContext] = React.useState(
         apiLink:"",
         score:0,
         gameEnded:false,
+        hasInternet:true,
         quizes:[]
     }
 )
