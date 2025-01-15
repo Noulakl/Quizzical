@@ -70,6 +70,7 @@ export default function ResultPage(){
         </form>
          <h2> Your score is {score} / 5 </h2>
          <Link to="/" className= "active" onClick={playAgain}> Play again</Link>
+        <p>App By Nola kely</p>
     </section>
     )
 }

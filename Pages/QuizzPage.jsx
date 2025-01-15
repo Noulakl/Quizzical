@@ -174,6 +174,7 @@ export default function QuizzPage(){
             onClick={checkAnswers}> 
             Check answers
         </Link>}
+        <p>App By Nola kely</p>
     </section>
 
     }
