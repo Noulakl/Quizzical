@@ -2,87 +2,19 @@ import React from "react"
 import Quiz from "../components/Quiz"
 import Answer from "../components/Answer"
 import {decode} from "html-entities"
-import { nanoid } from "nanoid"
 import { useOutletContext, Link } from 'react-router'
 import OfflinePage from "./Offline"
 import ErroPage from "./ErrorPage"
 import Loading from "../components/Loading"
-
+import fetchData from "../api"
 
 export default function QuizzPage(){
-    const [status, setStatus] = React.useState(null)
-    const [error, setError] = React.useState(null)
-    const [loading, setLoading] = React.useState(null)
     const [quizContext, setQuizContext] =useOutletContext()
-    const {quizes, gameEnded,hasInternet} = quizContext
+    const {quizes, gameEnded,hasInternet,error,loading} = quizContext
     const quizForm = React.useRef(null)
     const chosenAnswersCount = React.useRef(0) 
 
-    function shuffle(array) {
-        const shuffled = [...array]
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1)); 
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-        }
-        return shuffled
-    }
-
-    React.useEffect(()=>{
-        const BrowserInternet = navigator.onLine
-        setQuizContext(prev => {
-            return {
-                ...prev,
-                hasInternet:BrowserInternet
-            }
-        })
-        setLoading(true)
-        fetch(quizContext.apiLink)
-            .then(res=>res.json())
-            .then(data => {
-                const allQuiz = data.results.map(quiz => {
-                    const incorrectAnswers = quiz.incorrect_answers.map(answer => (
-    
-                    { 
-    
-                        id: `IncorrectAns${nanoid()}`,
-                        answer: answer, 
-                        isCorrect: false, 
-                        isSelected:false 
-    
-                    }))
-    
-                    const correctAnswer = 
-                    { 
-                        id: `CorrectAns_${nanoid()}`,
-                        answer: quiz.correct_answer, 
-                        isCorrect: true, 
-                        isSelected:false 
-                    }
-    
-                    const allAnswers = [...incorrectAnswers, correctAnswer]
-                    const{gameEnded} = quizContext
-                    return {
-                        id: `quiz_${nanoid()}`,
-                        question: quiz.question,
-                        answers: !gameEnded && shuffle(allAnswers),
-                    }   
-                })
-                setQuizContext(prev => {
-                    return {
-                        ...prev,
-                        quizes:allQuiz,
-                        hasInternet:hasInternet,
-                        hasChosen:false
-                    }
-                })
-                setLoading(false)
-            }).catch( err =>{
-                setError(err.message)
-                setLoading(false)
-            })
-            setStatus("ready")
-        }
-    ,[quizContext.apiLink])
+    fetchData()
 
     function handleChange(e) {
         const { value, name } = e.target

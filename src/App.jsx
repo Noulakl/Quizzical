@@ -16,7 +16,9 @@ const [quizContext, setQuizContext] = React.useState(
         score:0,
         gameEnded:false,
         hasInternet:true,
-        quizes:[]
+        quizes:[],
+        error:null,
+        loading:null
     }
 )
     return (

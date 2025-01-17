@@ -64,6 +64,9 @@ button, a{
     border: none;
     border-radius: 0.938rem;
 }
+button:hover{
+    transform: scale(110%);
+}
 a{
     display: inline-block;
     text-decoration: none;
