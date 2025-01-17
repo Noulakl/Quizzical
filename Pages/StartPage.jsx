@@ -67,6 +67,7 @@ export default function StartPage(){
                 to={"quizPage"}> 
                 Start Quizz 
             </Link>}
+        <p>App By Nola kely</p>
         </section>
     )
 }
