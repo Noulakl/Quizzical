@@ -1,5 +1,5 @@
 import React from "react"
-import Sad from "../assets/Sad-face.svg"
+import Sad from "../assets/sad-face.svg"
  
 export default function ErroPage({children}){
     return (
