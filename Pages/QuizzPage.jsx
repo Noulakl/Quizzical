@@ -7,15 +7,16 @@ import OfflinePage from "./Offline"
 import ErroPage from "./ErrorPage"
 import Loading from "../components/Loading"
 import fetchData from "../api"
+import ResetButton from "../components/ResetButton"
 
 export default function QuizzPage(){
     const [quizContext, setQuizContext] =useOutletContext()
-    const {quizes, gameEnded,hasInternet,error,loading} = quizContext
+    const {quizes, gameEnded,hasInternet,error,loading,apiLink} = quizContext
     const quizForm = React.useRef(null)
     const chosenAnswersCount = React.useRef(0) 
 
     fetchData()
-
+    console.log(apiLink)
     function handleChange(e) {
         const { value, name } = e.target
         const chosenAnswers= quizes.map(quiz=> {
@@ -86,12 +87,13 @@ export default function QuizzPage(){
     {        
     error && hasInternet ?
         <ErroPage>
-            Ooops! something went wrong. Please try again later
+            <h1> Ooops! something went wrong. Please try again later </h1>
+            <ResetButton> Try again </ResetButton>  
         </ErroPage> :
     !hasInternet ? 
         <OfflinePage>
-            You are offline, please connect to the Internet.
-        </OfflinePage> : 
+            <h1>You are offline, please connect to the Internet.</h1>
+            <ResetButton> Try again </ResetButton>        </OfflinePage> : 
     loading ? <Loading/> :
     <section className="quizz-section">
         <form 

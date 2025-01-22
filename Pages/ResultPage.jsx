@@ -4,7 +4,7 @@ import Quiz from "../components/Quiz"
 import Answer from "../components/Answer"
 import {decode} from "html-entities"
 import { useOutletContext, Link } from 'react-router'
-
+import ResetButton from "../components/ResetButton"
 
 export default function ResultPage(){
     const [quizContext, setQuizContext] = useOutletContext()
@@ -44,21 +44,6 @@ export default function ResultPage(){
             </Quiz>
         )
     })
-
-    function playAgain(){
-        setQuizContext(prev=>{
-            return(
-                {
-                    ...prev,
-                    hasChosen:false,
-                    apiLink:"",
-                    score:0,
-                    gameEnded:false,
-                    quizes:[]
-                }
-            )
-        })
-    }
     return (
     <section className="result_page">
                 <form 
@@ -69,7 +54,7 @@ export default function ResultPage(){
             {quizEl}
         </form>
          <h2> Your score is {score} / 5 </h2>
-         <Link to="/" className= "active" onClick={playAgain}> Play again</Link>
+         <ResetButton> Play Again </ResetButton>
         <p>App By Nola kely</p>
     </section>
     )
