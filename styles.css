@@ -13,20 +13,6 @@ body, html{
     justify-content: center;
     height: 100vh;
 }
-html::after{
-    content: url(/src/assets/yellow\ decore.svg);
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: -1;
-}
-html::before{
-    content: url(/src/assets/blue\ decore.svg);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-}
 main{
     width: 80vw;
 }

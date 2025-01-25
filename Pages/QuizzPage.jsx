@@ -16,7 +16,6 @@ export default function QuizzPage(){
     const chosenAnswersCount = React.useRef(0) 
 
     fetchData()
-    console.log(apiLink)
     function handleChange(e) {
         const { value, name } = e.target
         const chosenAnswers= quizes.map(quiz=> {
@@ -72,7 +71,7 @@ export default function QuizzPage(){
                 field={quizId} 
                 key={answer.id} 
                 isSelected = {answer.isSelected} >
-                {answer.answer}
+                {decode(answer.answer)}
             </Answer>)
             })
 
@@ -87,7 +86,7 @@ export default function QuizzPage(){
     {        
     error && hasInternet ?
         <ErroPage>
-            <h1> Ooops! something went wrong. Please try again later </h1>
+            <h1> Ooops! something went wrong. Please try again later. </h1>
             <ResetButton> Try again </ResetButton>  
         </ErroPage> :
     !hasInternet ? 

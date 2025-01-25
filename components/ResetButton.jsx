@@ -8,7 +8,6 @@ export default function ResetButton({children}){
                     {
                         ...prev,
                         hasChosen:false,
-                        apiLink:"",
                         score:0,
                         gameEnded:false,
                         quizes:[]
