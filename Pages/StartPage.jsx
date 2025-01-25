@@ -74,10 +74,15 @@ export default function StartPage(){
             </form>
 
            { 
-           hasChosen && 
            <Link 
-                className="active" 
-                to={"quizPage"}> 
+                className={hasChosen ? "active" : "disabled"} 
+                to={"quizPage"}
+                style={
+                    {
+                        pointerEvents:!hasChosen ? 'none' : 'auto',
+                    }
+                }
+                > 
                 Start Quizz 
             </Link>}
         <p>App By Nola kely</p>
