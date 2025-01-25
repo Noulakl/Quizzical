@@ -60,7 +60,8 @@
                             quizes:allQuiz,
                             hasInternet:BrowserInternet,
                             hasChosen:false,
-                            loading:false
+                            loading:false,
+                            gameEnded:false
                         }
                     })
                 }).catch( err =>{

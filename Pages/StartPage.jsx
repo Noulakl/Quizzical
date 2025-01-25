@@ -27,7 +27,6 @@ export default function StartPage(){
 
                     <optgroup label="General knowledge 🌍">
 
-                        <option value="any">🌎 Random</option>
                         <option value="9">📚 General Knowledge</option>
                         <option value="20">🦸‍♂️ Mythology</option>
                         <option value="21">🏅 Sports</option>
@@ -67,7 +66,6 @@ export default function StartPage(){
                 <select name="trivia_difficulty" id="diffuculty" className="quizz_setting" onChange={checkIfReady} ref={difficultyEl}>
                     <option value="choose" className="choose">--- Choose difficulty ---</option>
 
-                    <option value="any">🎲 Random 😎</option>
                     <option value="easy">👶 Noobs 😗</option>
                     <option value="medium">💪 Pro 🤓</option>
                     <option value="hard">🧠 God 🧐</option>
@@ -87,7 +85,6 @@ export default function StartPage(){
                 > 
                 Start Quizz 
             </Link>}
-        <p>App By Nola kely</p>
         </section>
     )
 }

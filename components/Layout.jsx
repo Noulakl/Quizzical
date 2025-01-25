@@ -4,6 +4,8 @@ import Yellow from "../src/assets/yellow_decore.svg"
 import Blue from "../src/assets/blue_decore.svg"
 
 export default function Layout(){
+    const moment = new Date()
+    const year = moment.getFullYear()
     const [quizContext, setQuizContext] = React.useState(
 
         {
@@ -35,6 +37,7 @@ return(
                 left:0,
                 zIndex:-1}
             }/>
+        <p className="copyright">©{year} App by Nola Kely</p>
     </>
 )
 

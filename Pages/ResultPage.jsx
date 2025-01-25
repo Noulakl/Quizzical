@@ -53,10 +53,9 @@ export default function ResultPage(){
         >
             {quizEl}
         </form>
-         <h2> Your score is {score} / 5 </h2>
+         <h2 className="score"> Your score is {score} / 5 </h2>
          <ResetButton> Choose different category </ResetButton>
          <Link to="/quizPage" className="active"> Play again </Link>
-        <p>App By Nola kely</p>
     </section>
     )
 }

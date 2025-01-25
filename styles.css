@@ -1,14 +1,14 @@
 *{
     user-select: none;
-}
-body, html{
+    padding: 0;
     margin: 0;
-    padding: .5em;
+}
+html{
+    padding: 2em .5em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -101,15 +101,22 @@ h2.title{
 }
 
 h2.score{
- font-size: .8rem;
+ font-size: 2rem;
  color: #293264;
  font-weight: bold;
- margin-top: 1.250rem 0 0;
+ margin: .5em 0;
 }
 
 h2.question{
     font-size: 1rem;
     font-weight: 600;
+}
+p.copyright{
+    color: #293264;
+    position: fixed;
+    bottom: .5em;
+    left: 25%;
+    right: 25%;
 }
 .answers-container li{
     list-style: none;
@@ -133,7 +140,8 @@ label{
     padding: 0.313rem 1.250rem ;
     width: fit-content;
     border: #D6DBF5 solid 0.063rem;
-    margin: .5em 0;
+    margin-bottom: .5em;
+    background-color: white;
 }
 
 label:hover,
@@ -160,12 +168,12 @@ label.remainig{
 .quizz{
     color: #293264;
     text-align: left;
-    margin-top: 1rem;
+    margin-top: .5rem;
     border: none;
     border-bottom: solid 0.188rem #DBDEF0;
     display: flex;
-    gap: 1.125rem;
-    padding-left: 0;
+    flex-wrap: wrap;
+    gap: .5em;
 }
 .answers-container{
     display: flex;
@@ -173,8 +181,8 @@ label.remainig{
     flex-direction: column;
     padding: 0;
 }
-form.answers-container{
-    margin: 1rem 0 ;
+legend{
+    margin-bottom: .5em;
 }
 /* Error containers */
 .sadPath img{
@@ -202,4 +210,10 @@ form.answers-container{
 }
 .dots img{
     width: 30%;
+}
+/* responsiveness */
+@media (max-width: 380px) {
+    html, body{
+        height: fit-content;
+    }
 }

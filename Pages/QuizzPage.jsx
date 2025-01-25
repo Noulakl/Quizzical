@@ -11,7 +11,7 @@ import ResetButton from "../components/ResetButton"
 
 export default function QuizzPage(){
     const [quizContext, setQuizContext] =useOutletContext()
-    const {quizes, gameEnded,hasInternet,error,loading,apiLink} = quizContext
+    const {quizes, gameEnded,hasInternet,error,loading} = quizContext
     const quizForm = React.useRef(null)
     const chosenAnswersCount = React.useRef(0) 
 
@@ -108,7 +108,6 @@ export default function QuizzPage(){
             onClick={checkAnswers}> 
             Check answers
         </Link>}
-        <p>App By Nola kely</p>
     </section>
     }
 </>
