@@ -3,7 +3,6 @@ import { useOutletContext, Link } from "react-router";
 export default function ResetButton({children}){
     const [quizContext, setQuizContext] = useOutletContext()
         function playAgain(){
-            window.location.reload()
             setQuizContext(prev=>{
                 return(
                     {
@@ -11,7 +10,8 @@ export default function ResetButton({children}){
                         hasChosen:false,
                         score:0,
                         gameEnded:false,
-                        quizes:[]
+                        quizes:[],
+                        isFirstOpen:false
                     }
                 )
             })

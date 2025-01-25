@@ -87,7 +87,7 @@ export default function QuizzPage(){
     error && hasInternet ?
         <ErroPage>
             <h1> Ooops! something went wrong. Please try again later. </h1>
-            <ResetButton> Try again </ResetButton>  
+            <Link to="/" className="active"> Try again </Link>  
         </ErroPage> :
     !hasInternet ? 
         <OfflinePage>

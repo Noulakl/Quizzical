@@ -4,9 +4,10 @@ import { useOutletContext, Link } from 'react-router'
 
 export default function StartPage(){
     const [quizContext, setQuizContext] = useOutletContext()
-    const {hasChosen} = quizContext 
+    const {hasChosen, isFirstOpen} = quizContext 
     const categoryEl = React.useRef(null)
     const difficultyEl = React.useRef(null)
+    // isFirstOpen && window.location.reload()
     function checkIfReady(){
         categoryEl.current.value !== "choose" && difficultyEl.current.value !== "choose" && setQuizContext( prev => 
             {
