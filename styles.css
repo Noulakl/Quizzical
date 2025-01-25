@@ -73,6 +73,7 @@ a{
     color: white;
     background-color: #4D5B9E;
     transition: all .3s;
+    margin: .5em;
 }
 .disabled{
     border: 0.125rem solid #D6DBF5;

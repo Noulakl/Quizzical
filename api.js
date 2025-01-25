@@ -51,7 +51,7 @@
                         return {
                             id: `quiz_${nanoid()}`,
                             question: quiz.question,
-                            answers: !gameEnded && shuffle(allAnswers),
+                            answers: !gameEnded && shuffle(allAnswers) || shuffle(allAnswers),
                         }   
                     })
                     setQuizContext(prev => {
@@ -64,6 +64,7 @@
                         }
                     })
                 }).catch( err =>{
+                    console.log("Opps, something went wrong X')", err.message)
                     setQuizContext(prev => {
                         return {
                             ...prev,

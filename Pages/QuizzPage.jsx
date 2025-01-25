@@ -18,11 +18,11 @@ export default function QuizzPage(){
     fetchData()
     function handleChange(e) {
         const { value, name } = e.target
-        const chosenAnswers= quizes.map(quiz=> {
+        const chosenAnswers= quizes && quizes.map(quiz=> {
             return quiz.answers.filter(answer => answer.isSelected === true).length
         }).filter(answer => answer == 1).length
         
-        const updatedQuizes = quizes.map(quiz => {
+        const updatedQuizes = quizes && quizes.map(quiz => {
             if (quiz.id === name) { 
                 return {
                     ...quiz,
@@ -46,7 +46,7 @@ export default function QuizzPage(){
 
     function checkAnswers(){
       
-        const score= quizes.map(quiz=> {
+        const score= quizes && quizes.map(quiz=> {
             return quiz.answers.filter(answer => answer.isSelected && answer.isCorrect ).length
         }).filter(answer => answer == 1).length
 
@@ -61,7 +61,7 @@ export default function QuizzPage(){
     }
 
     // Rendering the quizes
-    const quizEl = quizes.map(quiz => {
+    const quizEl = quizes && quizes.map(quiz => {
         const quizId = quiz.id
         const answersEl = quiz.answers.map(answer =>{ 
             return(
@@ -92,7 +92,8 @@ export default function QuizzPage(){
     !hasInternet ? 
         <OfflinePage>
             <h1>You are offline, please connect to the Internet.</h1>
-            <ResetButton> Try again </ResetButton>        </OfflinePage> : 
+            <Link to="/quizPage" className="active"> Try again </Link>        
+        </OfflinePage> : 
     loading ? <Loading/> :
     <section className="quizz-section">
         <form 
@@ -109,7 +110,6 @@ export default function QuizzPage(){
         </Link>}
         <p>App By Nola kely</p>
     </section>
-
     }
 </>
     )

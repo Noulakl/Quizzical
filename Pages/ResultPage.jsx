@@ -13,7 +13,7 @@ export default function ResultPage(){
     const quizForm = React.useRef(null)
 
 
-    const quizEl = quizes.map(quiz => {
+    const quizEl = quizes && quizes.map(quiz => {
         const quizId = quiz.id
         const answersEl = quiz.answers.map(answer =>{
             const correct = answer.isCorrect 
@@ -33,7 +33,7 @@ export default function ResultPage(){
                 className={variant}
                 >
 
-                {answer.answer}
+                {decode(answer.answer)}
 
             </Answer>)
             })
@@ -54,7 +54,8 @@ export default function ResultPage(){
             {quizEl}
         </form>
          <h2> Your score is {score} / 5 </h2>
-         <ResetButton> Play Again </ResetButton>
+         <ResetButton> Choose different category </ResetButton>
+         <Link to="/quizPage" className="active"> Play again </Link>
         <p>App By Nola kely</p>
     </section>
     )
